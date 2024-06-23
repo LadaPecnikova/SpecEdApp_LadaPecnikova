@@ -1,0 +1,111 @@
+﻿@page "/"
+@using SpecEdApp.Data
+@inject SpecEdService SpecEdService
+@inject NavigationManager Navigation
+
+
+<h3>Evidence dětí se speciálními vzdělávacími potřebami</h3>
+
+<!-- Formulář pro přidání dítěte -->
+<EditForm Model="NewDite">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="jmeno">Jméno:</label>
+        <InputText id="jmeno" @bind-Value="NewDite.Jmeno" />
+    </div>
+    <div>
+        <label for="prijmeni">Příjmení:</label>
+        <InputText id="prijmeni" @bind-Value="NewDite.Prijmeni" />
+    </div>
+    <div>
+        <label for="datumNarozeni">Datum narození:</label>
+        <InputDate id="datumNarozeni" @bind-Value="NewDite.DatumNarozeni" />
+    </div>
+    <div>
+        <label for="typSpecialnichPotreb">Typ speciálních potřeb:</label>
+        <InputText id="typSpecialnichPotreb" @bind-Value="NewDite.TypSpecialnichPotreb" />
+    </div>
+    <div>
+        <label for="specifickeVzdelavaciPotreby">Specifické vzdělávací potřeby:</label>
+        <InputText id="specifickeVzdelavaciPotreby" @bind-Value="NewDite.SpecifickeVzdelavaciPotreby" />
+    </div>
+    <div>
+        <label for="zdravotniInformace">Zdravotní informace:</label>
+        <InputText id="zdravotniInformace" @bind-Value="NewDite.ZdravotniInformace" />
+    </div>
+    <div>
+        <label for="kontaktNaRodice">Kontakt na rodiče:</label>
+        <InputText id="kontaktNaRodice" @bind-Value="NewDite.KontaktNaRodice" />
+    </div>
+    <button @onclick="PridejDite">@PridejDiteTlacitko</button>
+</EditForm>
+
+<hr />
+
+<h3>Seznam dětí</h3>
+@if (SpecEdService.GetDeti().Any())
+{
+    <ul>
+    @foreach (var dite in SpecEdService.GetDeti())
+        {
+            <li>
+                <p>@dite.Jmeno @dite.Prijmeni</p>
+                <button @onclick="() => UpravDite(dite)">Uprav dítě</button>
+                <button @onclick="() => SmazDite(dite)">Smaž dítě</button>
+                <button @onclick="() => VyberDite(dite)">Detail dítěte</button>
+            </li>
+            <br />
+        }
+    </ul>
+}
+else
+{
+    <p>Žádné děti nejsou evidovány.</p>
+}
+
+@code {
+    private Dite NewDite = new Dite(" ", " ", DateTime.Now, " ", " ", " ",
+    " ");
+
+    private String PridejDiteTlacitko = "Přidej dítě";
+
+    private bool Upravuju = false;
+
+    private void PridejDite()
+    {
+        if (Upravuju)
+        {
+            SpecEdService.UpravDite(NewDite);
+            Upravuju = false;
+            PridejDiteTlacitko = "Přidej Dítě";
+        }
+        else
+        {
+            NewDite.Id = SpecEdService.GetNextId();
+            SpecEdService.AddDite(NewDite);
+        }
+
+        NewDite = new Dite(string.Empty, string.Empty, DateTime.Now, string.Empty, string.Empty, string.Empty,
+        string.Empty);
+    }
+
+    private void UpravDite(Dite dite)
+    {
+        Upravuju = true;
+        NewDite = dite;
+        PridejDiteTlacitko = "Uprav Dítě";
+    }
+
+    private void SmazDite(Dite dite)
+    {
+        SpecEdService.SmazDite(dite);
+    }
+
+    private void VyberDite(Dite dite)
+    {
+        SpecEdService.VyberDite(dite);
+        Navigation.NavigateTo("/dite");
+    }
+}

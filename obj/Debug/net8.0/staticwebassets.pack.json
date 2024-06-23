@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/obj/Debug/net8.0/compressed/53uevdfrio.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/obj/Debug/net8.0/scopedcss/bundle/SpecEdApp_3.styles.css",
+      "PackagePath": "staticwebassets/SpecEdApp_3.styles.css"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/ladapecnikova/Desktop/C# 2/SpecEdApp_3/wwwroot/sample-data/weather.json",
+      "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.SpecEdApp_3.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.SpecEdApp_3.props",
+      "PackagePath": "build\\SpecEdApp_3.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.SpecEdApp_3.props",
+      "PackagePath": "buildMultiTargeting\\SpecEdApp_3.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.SpecEdApp_3.props",
+      "PackagePath": "buildTransitive\\SpecEdApp_3.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

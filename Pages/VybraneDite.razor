@@ -1,0 +1,56 @@
+@page "/dite/"
+@using SpecEdApp.Data
+@inject SpecEdService SpecEdService
+
+@inject NavigationManager NavigationManager
+
+@if (vybraneDite == null)
+{
+    <div>
+    <p>Není vybráno žádné dítě</p>
+    <button @onclick="GoBack">Back</button>
+</div>
+}
+else
+{
+    <div>
+    <label for="jmeno">Jméno:</label>
+    <label id="jmeno"> @vybraneDite.Jmeno </label>
+</div>
+    <div>
+    <label for="prijmeni">Příjmení:</label>
+    <label id="jmeno"> @vybraneDite.Prijmeni </label>
+</div>
+    <div>
+    <label for="datumNarozeni">Datum narození:</label>
+    <label id="jmeno"> @vybraneDite.DatumNarozeni </label>
+</div>
+    <div>
+    <label for="typSpecialnichPotreb">Typ speciálních potřeb:</label>
+    <label id="jmeno"> @vybraneDite.TypSpecialnichPotreb </label>
+</div>
+    <div>
+    <label for="specifickeVzdelavaciPotreby">Specifické vzdělávací potřeby:</label>
+    <label id="jmeno"> @vybraneDite.SpecifickeVzdelavaciPotreby </label>
+</div>
+    <div>
+    <label for="zdravotniInformace">Zdravotní informace:</label>
+    <label id="jmeno"> @vybraneDite.ZdravotniInformace </label>
+</div>
+    <div>
+    <label for="kontaktNaRodice">Kontakt na rodiče:</label>
+    <label id="jmeno"> @vybraneDite.KontaktNaRodice </label>
+</div>
+}
+
+@code {
+    private Dite vybraneDite
+    {
+        get { return SpecEdService.VybraneDite; }
+    }
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}
